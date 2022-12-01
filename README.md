@@ -36,7 +36,7 @@ De blog-applicatie heeft op dit moment nog geen pagina's en ook geen routing. Di
 1. Home pagina (`/`)
 2. Login pagina (`/login`)
 3. Blog Overzicht pagina (`/blogposts`)
-4. Blogpost pagina (`/blogposts/:blogId`)
+4. BlogpostOverview pagina (`/blogposts/:blogId`)
 
 * Zorg ervoor dat er *content* op die pagina's komt te staan:
     * Maak een navigatiebalk met de links naar de Home Pagina, Login pagina en Blog Overzicht pagina. Zorg dat deze op
@@ -44,7 +44,7 @@ De blog-applicatie heeft op dit moment nog geen pagina's en ook geen routing. Di
     * De **Login pagina** bevat simpelweg een knop met "Inloggen" die de gebruiker doorstuurt naar overzichtspagina;
     * De **Blog Overzicht pagina** bevat de totale hoeveelheid posts (*getal*) en alle blog-titels. De titels zijn links
       die je doorlinken naar die specifieke post.
-    * De **Blogpost pagina** is een component dat, op basis van de parameter in de url (*dynamic parameters*), de juiste
+    * De **BlogpostOverview pagina** is een component dat, op basis van de parameter in de url (*dynamic parameters*), de juiste
       blogpost ophaalt uit de meegeleverde JSON data, en deze weergeeft . De JSON data kun je simpelweg importeren en
       gebruiken als een array met objecten:
 
