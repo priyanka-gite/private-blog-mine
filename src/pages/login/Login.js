@@ -1,21 +1,28 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 
-
-const Login = () => {
+const Login = ({toggleIsAuthenticated}) => {
     const navigate = useNavigate();
-
-    function handleLogin (){
-        console.log("Navigating to BlogpostOverview")
-        navigate("/blogpost")
-    }
+    // navigate("/blogpostOverview")
 
     return (
-        <div>
-            <button type="button" onClick={()=>{handleLogin()
-            }}>  Login
-            </button>
-        </div>
+        <>
+            <div className="page">
+                <h1 className="head-color"> Login Pagina</h1>
+                <p className="p-color"> Druk op knop om in te loggen.</p>
+                <button className="button"
+                        type="button"
+                        onClick={()=>
+                        {
+                            toggleIsAuthenticated (true)
+                            navigate("/")}
+                        }
+                >
+                    Login
+                </button>
+
+            </div>
+        </>
     );
 };
 

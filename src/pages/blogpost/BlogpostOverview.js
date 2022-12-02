@@ -1,24 +1,27 @@
 import React from 'react';
 import Posts from '../../data/posts.json'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
-const BlogpostOverview = () => {
+const BlogpostOverview = ({isAuthenticated, toggleIsAuthenticated}) => {
+   const navigate = useNavigate();
     return (
 
-        <div>
-            <h1> Blog Overzicht</h1>
-            <h4>Aantal blogpost: {Posts.length}</h4>
+        <div className="page">
+            <h1 className= "head-color"> Blog Overzicht</h1>
+            <h4 className= "head-color">Aantal blogpost: {Posts.length}</h4>
 
             <ul>
-                {
+                { isAuthenticated ?
                     Posts.map((post) =>{
-                        console.log(post.id)
+                        console.log(post.id);
                         return(
-                            <li key= { post.id}>
-                                <Link to={"/blogpost/:" + post.id}>  {post.title}</Link>
+                            <li className="link-color" key={`${post.id}`}>
+                                <Link to={`/blogpost/${post.id}`} className ="link-color">  {post.title}
+                                </Link>
                             </li>
                         )
-                    })
+                    }) :
+                    navigate("/")
                 }
             </ul>
         </div>

@@ -1,15 +1,32 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import Logout from "../Logout/Logout";
 
-const Nav = () => {
+const Nav = ({isAuthenticated,toggleIsAuthenticated, className}) => {
     return (
-        <div>
-            <ul>
-                <li><NavLink to="/">Home pagina</NavLink></li>
-                <li><NavLink to="/login">Login pagina</NavLink></li>
-                <li><NavLink to="/blogpostOverview">Blog Overzicht pagina </NavLink></li>
-            </ul>
-        </div>
+        < >
+            <div className="navBar">
+                <section>
+                    <NavLink to="/" className=" styles ">Home pagina
+                    </NavLink>
+
+                    {isAuthenticated ?
+                        <NavLink to="/blogpostOverview" className=" styles">Blog Overzicht pagina
+                        </NavLink>
+                        :
+                        <NavLink to="/login" className=" styles" >Login pagina
+                        </NavLink>}
+
+                </section>
+
+                <section> {isAuthenticated ? <Logout toggleIsAuthenticated={toggleIsAuthenticated}/>
+                    :
+                    <div></div>}
+                </section>
+            </div>
+
+
+        </>
     );
 };
 
